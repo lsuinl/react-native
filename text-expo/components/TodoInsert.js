@@ -21,11 +21,12 @@ const TodoInsert = ({onAddTodo}) => {
             style={styles.input}
             placeholder="Add an item!"
             value={newTodoItem}
+            onChangeText={todoInputHandler}
             placeholderTextColor={'#999'}
             autoCorrect={false}
         />
         <View style={styles.button}>
-            <Button title={'ADD'} color='black'/>
+            <Button title={'ADD'} onPress={addTodoHandler} color='black'/>
         </View>
     </View>
     );

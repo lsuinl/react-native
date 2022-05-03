@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import TodoInsert from './components/TodoInsert';//tosoinsert파일 컴포넌트 임포트
 import TodoList from './components/TodoList'; //스크롤 바를 만든 파일
 
-export default function App() {
+const App =() => {
   //todos: {id: Number, textValue: String, checked: Boolean}
   const [todos, setTodos] = useState([]);
 
@@ -28,16 +27,13 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.appTitle}>Hello Todolist!</Text> 
       <View style={styles.card}>
         <TodoInsert onAddTodo={addTodo} />
         <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
-        <TodoInsert />
-        <TodoList/>
       </View>
-      <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -64,3 +60,5 @@ const styles = StyleSheet.create({
     marginRight: 20, //오른쪽여백
   },
 });
+
+export default App;
